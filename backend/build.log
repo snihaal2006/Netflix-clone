@@ -1,0 +1,23 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.netflixclone:netflix-backend >------------------
+[INFO] Building netflix-backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ netflix-backend ---
+[INFO] Deleting C:\Users\Nihaal S\java\Netflix clone\backend\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ netflix-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ netflix-backend ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 12 source files with javac [debug release 17] to target\classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.368 s
+[INFO] Finished at: 2026-01-28T16:03:43+05:30
+[INFO] ------------------------------------------------------------------------

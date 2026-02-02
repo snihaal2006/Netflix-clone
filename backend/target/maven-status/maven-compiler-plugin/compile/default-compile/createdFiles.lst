@@ -1,0 +1,12 @@
+com\netflixclone\backend\entity\User.class
+com\netflixclone\backend\controller\AuthController.class
+com\netflixclone\backend\NetflixBackendApplication.class
+com\netflixclone\backend\entity\Genre.class
+com\netflixclone\backend\config\DataSeeder.class
+com\netflixclone\backend\controller\UserController.class
+com\netflixclone\backend\entity\Movie.class
+com\netflixclone\backend\service\MovieService.class
+com\netflixclone\backend\controller\MovieController.class
+com\netflixclone\backend\repository\GenreRepository.class
+com\netflixclone\backend\repository\UserRepository.class
+com\netflixclone\backend\repository\MovieRepository.class

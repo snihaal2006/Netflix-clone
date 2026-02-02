@@ -1,0 +1,316 @@
+/* Modal Overlay / Backdrop */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
+    display: block;
+    /* reliable scrolling */
+    overflow-y: auto;
+    /* Allow scrolling if modal is tall */
+    animation: fadeIn 0.3s;
+}
+
+/* Modal Content Container */
+.modal-container {
+    background-color: #181818;
+    width: 850px;
+    max-width: 95%;
+    margin: 30px auto;
+    /* Center horizontally */
+    border-radius: 6px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+    position: relative;
+    overflow: hidden;
+    /* Space at bottom for scrolling */
+    color: white;
+    animation: slideUp 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    background-color: #181818;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-btn:hover {
+    background-color: #333;
+}
+
+/* Hero Section */
+.modal-hero {
+    position: relative;
+    height: 480px;
+    width: 100%;
+}
+
+.modal-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+}
+
+.modal-hero-shadow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, #181818, transparent);
+}
+
+.modal-hero-content {
+    position: absolute;
+    bottom: 50px;
+    /* Adjusted to be above the fade */
+    left: 40px;
+    width: 40%;
+}
+
+.modal-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Actions */
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.modal-play-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 8px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-play-btn:hover {
+    background-color: #e6e6e6;
+}
+
+.modal-icon-btn {
+    background-color: rgba(42, 42, 42, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+}
+
+.modal-icon-btn:hover {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Modal Info Grid */
+.modal-info-grid {
+    display: flex;
+    padding: 0 40px;
+    margin-top: 20px;
+    gap: 40px;
+}
+
+.modal-info-left {
+    flex: 2;
+}
+
+.modal-info-right {
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.modal-stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.modal-match {
+    color: #46d369;
+}
+
+.modal-year {
+    color: #a3a3a3;
+}
+
+.modal-age {
+    border: 1px solid #a3a3a3;
+    padding: 0 4px;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.modal-hd {
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+    padding: 0 4px;
+    font-size: 0.7rem;
+    color: white;
+    margin-left: 5px;
+}
+
+.modal-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.modal-meta-row {
+    margin-bottom: 10px;
+}
+
+.modal-label {
+    color: #777;
+}
+
+.modal-value {
+    color: white;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.modal-value:hover {
+    text-decoration: underline;
+}
+
+/* More Like This Section */
+.modal-more-like-this {
+    padding: 40px;
+}
+
+.modal-more-like-this h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.more-like-this-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.recommendation-card {
+    background-color: #2f2f2f;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.recommendation-image-container {
+    position: relative;
+    height: 140px;
+}
+
+.recommendation-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recommendation-duration {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 0.8rem;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+.recommendation-info {
+    padding: 15px;
+}
+
+.recommendation-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.recommendation-desc {
+    font-size: 0.85rem;
+    color: #d2d2d2;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.modal-add-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+    background: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.modal-add-btn:hover {
+    border-color: white;
+}

@@ -1,0 +1,7 @@
+/* Reseting default Vite styles that caused layout issues */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #111;
+  overflow-x: hidden;
+}

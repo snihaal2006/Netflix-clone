@@ -1,0 +1,8 @@
+{
+  "name": "GeminiFlix - AI-Powered Entertainment",
+  "description": "A high-fidelity Netflix clone that uses Gemini AI to dynamically generate movie recommendations, descriptions, and a personalized viewing experience.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

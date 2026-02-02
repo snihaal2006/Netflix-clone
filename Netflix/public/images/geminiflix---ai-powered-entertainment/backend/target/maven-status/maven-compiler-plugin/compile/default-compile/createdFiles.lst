@@ -1,0 +1,6 @@
+com\geminiflix\backend\controller\MovieController.class
+com\geminiflix\backend\repository\MovieRepository.class
+com\geminiflix\backend\config\WebConfig.class
+com\geminiflix\backend\model\Movie.class
+com\geminiflix\backend\service\MovieService.class
+com\geminiflix\backend\BackendApplication.class

@@ -1,0 +1,156 @@
+.playerScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.playerScreen__video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Controls Overlay */
+.playerScreen__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 20%, transparent 80%, rgba(0, 0, 0, 0.8));
+    transition: opacity 0.3s ease;
+}
+
+.playerScreen__overlay--hidden {
+    opacity: 0;
+    cursor: none;
+}
+
+/* Top Header */
+.playerScreen__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+.playerScreen__backBtn {
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playerScreen__flagBtn {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+/* Bottom Controls */
+.playerScreen__controls {
+    padding: 20px 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Progress Bar */
+.playerScreen__progress {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.playerScreen__slider {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 4px;
+    background: #555;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+}
+
+.playerScreen__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e50914;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.playerScreen__slider::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+}
+
+.playerScreen__time {
+    color: #ddd;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Buttons Row */
+.playerScreen__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.playerScreen__leftControls,
+.playerScreen__rightControls {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.playerScreen__btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s;
+}
+
+.playerScreen__btn:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.playerScreen__titleContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.playerScreen__title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
