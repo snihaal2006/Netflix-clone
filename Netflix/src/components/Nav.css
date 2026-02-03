@@ -72,7 +72,8 @@
     cursor: pointer;
 }
 
-background-color: #f40612;
+.nav__signInButton:hover {
+    background-color: #f40612;
 }
 
 @media (max-width: 768px) {
