@@ -154,3 +154,39 @@
     font-size: 1.1rem;
     font-weight: 500;
 }
+
+@media (max-width: 768px) {
+    .playerScreen__controls {
+        padding: 10px 15px 20px;
+        gap: 10px;
+    }
+
+    .playerScreen__btn {
+        font-size: 1.4rem;
+    }
+
+    .playerScreen__leftControls,
+    .playerScreen__rightControls {
+        gap: 15px;
+    }
+
+    /* Hide title on very small screens to prevent overlap or make it smaller */
+    .playerScreen__title {
+        font-size: 0.9rem;
+        display: block;
+        width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .playerScreen__titleContainer {
+        bottom: 55px;
+        /* Move title up a bit */
+    }
+
+    /* Adjust progress bar spacing */
+    .playerScreen__progress {
+        gap: 10px;
+    }
+}
