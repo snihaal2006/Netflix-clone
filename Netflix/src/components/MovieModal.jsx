@@ -76,7 +76,7 @@ function MovieModal({ movie, onClose }) {
 
                 <div className="modal-hero">
                     <img
-                        src={`${API_URL}/movies/${movie.id}/thumbnail`}
+                        src={movie.thumbnailUrl}
                         alt={movie.title}
                         className="modal-hero-img"
                         onError={(e) => {
@@ -138,7 +138,7 @@ function MovieModal({ movie, onClose }) {
                                 <div key={rec.id} className="recommendation-card">
                                     <div className="recommendation-image-container">
                                         <img
-                                            src={`${API_URL}/movies/${rec.id}/thumbnail`}
+                                            src={rec.thumbnailUrl}
                                             alt={rec.title}
                                             className="recommendation-img"
                                             onError={(e) => {

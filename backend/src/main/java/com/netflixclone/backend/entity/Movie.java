@@ -21,10 +21,8 @@ public class Movie {
     @com.fasterxml.jackson.annotation.JsonIgnore
     private String videoUrl;
 
-    @Lob
-    @Column(length = 10000000)
-    @com.fasterxml.jackson.annotation.JsonIgnore
-    private byte[] thumbnail;
+    @Column(length = 2048)
+    private String thumbnailUrl;
 
     private LocalDate releaseDate;
 

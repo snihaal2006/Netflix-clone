@@ -90,7 +90,7 @@ function Row({ title, fetchUrl, isLargeRow, className, movies: propMovies }) {
 
                             <img
                                 className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-                                src={`${API_URL}/movies/${movie.id}/thumbnail`}
+                                src={movie.thumbnailUrl}
                                 onError={(e) => {
                                     e.target.onerror = null;
                                     e.target.src = "https://upload.wikimedia.org/wikipedia/commons/c/cd/Portrait_Placeholder_Square.png"

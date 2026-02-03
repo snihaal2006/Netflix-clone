@@ -28,28 +28,16 @@ public class DataSeeder implements CommandLineRunner {
         Genre horror = createOrGetGenre("Horror");
 
         // List of available local images
-        String[] imagePaths = {
-                "/images/image_341x192_1.webp",
-                "/images/image_341x192_2.jpg",
-                "/images/image_341x192_3.webp",
-                "/images/image_341x192_4.webp",
-                "/images/image_341x192_5.webp",
-                "/images/image_341x192_6.webp",
-                "/images/image_341x192_7.webp",
-                "/images/image_341x192_8.jpg",
-                "/images/image_341x192_9.webp",
-                "/images/image_341x192_10.jpg",
-                "/images/image_341x192_11.jpg",
-                "/images/image_341x192_12.jpg",
-                "/images/image_341x192_13.jpg",
-                "/images/image_341x192_14.jpg",
-                "/images/image_341x192_15.webp",
-                "/images/image_341x192_16.jpg",
-                "/images/image_341x192_17.jpg",
-                "/images/image_341x192_18.jpg",
-                "/images/image_341x192_19.jpg",
-                "/images/image_341x192_20.jpg",
-                "/images/image_341x192_21.jpg"
+        // List of Cloud Image URLs (Unsplash & TMDB Placeholders)
+        String[] imageUrls = {
+                "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&q=80",
+                "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80",
+                "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=500&q=80",
+                "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=500&q=80",
+                "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=500&q=80",
+                "https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=500&q=80",
+                "https://images.unsplash.com/photo-1605656816944-971cd5c1407f?w=500&q=80",
+                "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&q=80"
         };
 
         // Update ALL existing movies with the local video path
@@ -61,12 +49,9 @@ public class DataSeeder implements CommandLineRunner {
                     "https://oepxzxnnofhcuvofhzeg.supabase.co/storage/v1/object/public/sample/FD79CB80-0D4D-40A5-852F-CEBEACCE6F6F.MP4");
 
             // Assign image cyclically if missing
-            if (movie.getThumbnail() == null) {
-                String path = imagePaths[imageIndex % imagePaths.length];
-                byte[] bytes = readImage(path);
-                if (bytes != null) {
-                    movie.setThumbnail(bytes);
-                }
+            if (movie.getThumbnailUrl() == null) {
+                String url = imageUrls[imageIndex % imageUrls.length];
+                movie.setThumbnailUrl(url);
             }
             movieRepository.save(movie);
             imageIndex++;
@@ -74,10 +59,7 @@ public class DataSeeder implements CommandLineRunner {
 
         if (movieRepository.count() < 15) {
             // Seed initial data if DB is empty or low
-            String[] commonImages = {
-                    "/images/image_341x192_1.webp", "/images/image_341x192_2.jpg", "/images/image_341x192_3.webp",
-                    "/images/image_341x192_4.webp", "/images/image_341x192_5.webp", "/images/image_341x192_6.webp"
-            };
+            String[] commonImages = imageUrls;
 
             for (int i = 1; i <= 20; i++) {
                 String title = "Movie Title " + i;
@@ -91,37 +73,17 @@ public class DataSeeder implements CommandLineRunner {
             // Specific overrides
             updateOrCreateMovie("Stranger Things",
                     "When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.",
-                    "/images/image_341x192_1.webp",
+                    "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&q=80",
                     "50m", "U/A 16+", 98, action, horror);
 
             updateOrCreateMovie("Big Buck Bunny",
                     "A large and lovable rabbit ends up with three annoying rodents, Frank, Rinky, and Gamera.",
-                    "/images/image_341x192_2.jpg",
+                    "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80",
                     "10m", "U", 95, comedy, action);
         }
     }
 
-    private byte[] readImage(String path) {
-        try {
-            // Path is like "/images/image...webp"
-            // We need absolute path. Assuming running from project root or having a known
-            // base.
-            // For this environment, we know the public folder is at:
-            // c:\Users\Nihaal S\java\Netflix clone\Netflix\public
-
-            // Convert web path to file path
-            // Remove leading slash if present
-            String cleanPath = path.startsWith("/") ? path.substring(1) : path;
-            cleanPath = cleanPath.replace("/", "\\"); // Windows separators
-
-            java.nio.file.Path file = java.nio.file.Paths
-                    .get("c:\\Users\\Nihaal S\\java\\Netflix clone\\Netflix\\public", cleanPath);
-            return java.nio.file.Files.readAllBytes(file);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null; // or empty array
-        }
-    }
+    // Removed readImage method as we are using URLs now
 
     private Genre createOrGetGenre(String name) {
         return genreRepository.findAll().stream()
@@ -144,11 +106,8 @@ public class DataSeeder implements CommandLineRunner {
 
         movie.setDescription(desc);
 
-        // Convert path to bytes
-        byte[] imageBytes = readImage(thumbPath);
-        if (imageBytes != null) {
-            movie.setThumbnail(imageBytes);
-        }
+        // Set URL directly
+        movie.setThumbnailUrl(thumbPath);
 
         movie.setDuration(duration);
         movie.setRating(rating);

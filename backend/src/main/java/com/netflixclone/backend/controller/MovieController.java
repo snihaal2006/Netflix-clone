@@ -40,24 +40,7 @@ public class MovieController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}/thumbnail")
-    public org.springframework.http.ResponseEntity<byte[]> getMovieThumbnail(@PathVariable Long id) {
-        Movie movie = movieService.getAllMovies().stream() // Ideally findById, but using stream for quick access if
-                                                           // service missing findById
-                .filter(m -> m.getId().equals(id))
-                .findFirst()
-                .orElse(null);
-
-        if (movie != null && movie.getThumbnail() != null) {
-            return org.springframework.http.ResponseEntity.ok()
-                    .header(org.springframework.http.HttpHeaders.CONTENT_TYPE, "image/jpeg") // Defaulting to jpeg/webp,
-                                                                                             // browser handles
-                                                                                             // detection usually or we
-                                                                                             // can detect
-                    .body(movie.getThumbnail());
-        }
-        return org.springframework.http.ResponseEntity.notFound().build();
-    }
+    // Thumbnail endpoint removed in favor of direct thumbnailUrl field
 
     @GetMapping("/{id}/video")
     public org.springframework.http.ResponseEntity<org.springframework.core.io.Resource> getMovieVideo(

@@ -48,7 +48,7 @@ function Banner() {
     // Since we are now using BLOBs served via API, we construct the URL dynamically
     const backgroundSrc = !movie?.id || imageError
         ? "https://upload.wikimedia.org/wikipedia/commons/c/cd/Portrait_Placeholder_Square.png"
-        : `${API_URL}/movies/${movie.id}/thumbnail`;
+        : movie.thumbnailUrl;
 
     return (
         <header className="banner">
