@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 @Entity
+@jakarta.persistence.Table(name = "app_user")
 @Data
 public class User {
     @Id
