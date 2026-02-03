@@ -72,6 +72,28 @@
     cursor: pointer;
 }
 
-.nav__signInButton:hover {
-    background-color: #f40612;
+background-color: #f40612;
+}
+
+@media (max-width: 768px) {
+    .nav__links {
+        display: none;
+        /* Hide navigation links on mobile */
+    }
+
+    .nav__logo {
+        width: 60px;
+        /* Smaller logo */
+        margin-right: 10px;
+    }
+
+    .nav {
+        padding: 0 20px;
+        /* Reduced padding */
+    }
+
+    .nav__avatar {
+        width: 28px;
+        height: 28px;
+    }
 }
