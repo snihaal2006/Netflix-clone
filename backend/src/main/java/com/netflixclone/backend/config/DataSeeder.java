@@ -28,16 +28,33 @@ public class DataSeeder implements CommandLineRunner {
         Genre horror = createOrGetGenre("Horror");
 
         // List of available local images
-        // List of Cloud Image URLs (Unsplash & TMDB Placeholders)
+        // List of Cloud Image URLs (Hosted on Render Backend)
+        // Since we copied images to src/main/resources/static/images, they are
+        // available at /images/...
+        // We use the full Cloud URL so the frontend (Netlify) can access them.
+        String baseUrl = "https://netflix-clone-efk6.onrender.com";
         String[] imageUrls = {
-                "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&q=80",
-                "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80",
-                "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=500&q=80",
-                "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=500&q=80",
-                "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=500&q=80",
-                "https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=500&q=80",
-                "https://images.unsplash.com/photo-1605656816944-971cd5c1407f?w=500&q=80",
-                "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&q=80"
+                baseUrl + "/images/image_341x192_1.webp",
+                baseUrl + "/images/image_341x192_2.jpg",
+                baseUrl + "/images/image_341x192_3.webp",
+                baseUrl + "/images/image_341x192_4.webp",
+                baseUrl + "/images/image_341x192_5.webp",
+                baseUrl + "/images/image_341x192_6.webp",
+                baseUrl + "/images/image_341x192_7.webp",
+                baseUrl + "/images/image_341x192_8.jpg",
+                baseUrl + "/images/image_341x192_9.webp",
+                baseUrl + "/images/image_341x192_10.jpg",
+                baseUrl + "/images/image_341x192_11.jpg",
+                baseUrl + "/images/image_341x192_12.jpg",
+                baseUrl + "/images/image_341x192_13.jpg",
+                baseUrl + "/images/image_341x192_14.jpg",
+                baseUrl + "/images/image_341x192_15.webp",
+                baseUrl + "/images/image_341x192_16.jpg",
+                baseUrl + "/images/image_341x192_17.jpg",
+                baseUrl + "/images/image_341x192_18.jpg",
+                baseUrl + "/images/image_341x192_19.jpg",
+                baseUrl + "/images/image_341x192_20.jpg",
+                baseUrl + "/images/image_341x192_21.jpg"
         };
 
         // Update ALL existing movies with the local video path
@@ -73,12 +90,12 @@ public class DataSeeder implements CommandLineRunner {
             // Specific overrides
             updateOrCreateMovie("Stranger Things",
                     "When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.",
-                    "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&q=80",
+                    baseUrl + "/images/image_341x192_1.webp",
                     "50m", "U/A 16+", 98, action, horror);
 
             updateOrCreateMovie("Big Buck Bunny",
                     "A large and lovable rabbit ends up with three annoying rodents, Frank, Rinky, and Gamera.",
-                    "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80",
+                    baseUrl + "/images/image_341x192_2.jpg",
                     "10m", "U", 95, comedy, action);
         }
     }
