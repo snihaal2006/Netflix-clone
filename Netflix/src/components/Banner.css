@@ -155,3 +155,49 @@
     font-weight: bold;
     font-size: 1rem;
 }
+
+@media (max-width: 768px) {
+    .banner {
+        height: 60vh;
+        /* Smaller banner on mobile */
+    }
+
+    .banner__contents {
+        margin-left: 20px;
+        padding-top: 100px;
+        height: auto;
+    }
+
+    .logo-font {
+        font-size: 3rem;
+    }
+
+    .banner__description {
+        font-size: 0.9rem;
+        width: auto;
+        max-width: 300px;
+        max-height: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .banner__label {
+        font-size: 1rem;
+    }
+
+    .banner__subtitle {
+        font-size: 1.1rem;
+    }
+
+    .banner__buttons {
+        margin-bottom: 20px;
+    }
+
+    .banner__button {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+    }
+}

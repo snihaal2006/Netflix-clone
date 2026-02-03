@@ -5,9 +5,17 @@
 }
 
 .row__overlap {
-    margin-top: -150px;
+    margin-top: -80px;
+    /* Reduced from -150px to fix text overlap */
     position: relative;
     z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .row__overlap {
+        margin-top: 0px;
+        /* No overlap on mobile */
+    }
 }
 
 .row__posters {
@@ -228,4 +236,18 @@
     margin-left: 20px;
     margin-bottom: 0.5rem;
     color: #e5e5e5;
+}
+
+@media (max-width: 768px) {
+    .row__poster {
+        height: 100px;
+    }
+
+    .row__posterLarge {
+        height: 160px;
+    }
+
+    .row h2 {
+        font-size: 1rem;
+    }
 }
