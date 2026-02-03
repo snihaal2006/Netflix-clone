@@ -6,6 +6,8 @@ import { FaPlay, FaPlus, FaThumbsUp } from "react-icons/fa";
 import { AiOutlineDown } from "react-icons/ai";
 import MovieModal from "./MovieModal";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081/api";
+
 function Row({ title, fetchUrl, isLargeRow, className, movies: propMovies }) {
     const [movies, setMovies] = useState([]);
 
@@ -38,7 +40,7 @@ function Row({ title, fetchUrl, isLargeRow, className, movies: propMovies }) {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user && user.id) {
             try {
-                await axios.post(`http://localhost:8081/api/users/${user.id}/mylist/${movie.id}`);
+                await axios.post(`/users/${user.id}/mylist/${movie.id}`);
                 alert("Added to My List!");
             } catch (error) {
                 console.error("Error adding to My List", error);
@@ -52,7 +54,7 @@ function Row({ title, fetchUrl, isLargeRow, className, movies: propMovies }) {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user && user.id) {
             try {
-                await axios.post(`http://localhost:8081/api/users/${user.id}/liked/${movie.id}`);
+                await axios.post(`/users/${user.id}/liked/${movie.id}`);
                 alert("Added to Liked Movies!");
             } catch (error) {
                 console.error("Error adding to Liked Movies", error);
@@ -88,7 +90,7 @@ function Row({ title, fetchUrl, isLargeRow, className, movies: propMovies }) {
 
                             <img
                                 className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-                                src={`http://localhost:8081/api/movies/${movie.id}/thumbnail`}
+                                src={`${API_URL}/movies/${movie.id}/thumbnail`}
                                 onError={(e) => {
                                     e.target.onerror = null;
                                     e.target.src = "https://upload.wikimedia.org/wikipedia/commons/c/cd/Portrait_Placeholder_Square.png"

@@ -7,6 +7,8 @@ import { FiInfo } from "react-icons/fi";
 import { GoMute, GoUnmute } from "react-icons/go";
 import MovieModal from "./MovieModal";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081/api";
+
 function Banner() {
     const navigate = useNavigate();
     const [movie, setMovie] = useState(null);
@@ -46,7 +48,7 @@ function Banner() {
     // Since we are now using BLOBs served via API, we construct the URL dynamically
     const backgroundSrc = !movie?.id || imageError
         ? "https://upload.wikimedia.org/wikipedia/commons/c/cd/Portrait_Placeholder_Square.png"
-        : `http://localhost:8081/api/movies/${movie.id}/thumbnail`;
+        : `${API_URL}/movies/${movie.id}/thumbnail`;
 
     return (
         <header className="banner">

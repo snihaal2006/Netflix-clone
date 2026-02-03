@@ -22,7 +22,7 @@ public class Movie {
     private String videoUrl;
 
     @Lob
-    @Column(columnDefinition = "LONGBLOB")
+    @Column(length = 10000000)
     @com.fasterxml.jackson.annotation.JsonIgnore
     private byte[] thumbnail;
 

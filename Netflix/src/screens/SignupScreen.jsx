@@ -19,7 +19,7 @@ function SignupScreen() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8081/api/auth/signup', {
+            const response = await axios.post('/auth/signup', {
                 email,
                 password,
                 username: email.split('@')[0] // Default username from email

@@ -3,6 +3,8 @@ import "./Nav.css";
 
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081/api";
+
 function Nav() {
     const [show, handleShow] = useState(false);
     const [user, setUser] = useState(null);
@@ -50,7 +52,7 @@ function Nav() {
                 {user ? (
                     <img
                         className="nav__avatar"
-                        src={`http://localhost:8081/api/users/${user.id}/picture`}
+                        src={`${API_URL}/users/${user.id}/picture`}
                         alt="Avatar"
                         onClick={() => navigate('/profile')}
                         onError={(e) => e.target.src = "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"}

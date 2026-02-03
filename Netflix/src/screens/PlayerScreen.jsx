@@ -18,6 +18,8 @@ const formatTime = (seconds) => {
     return `${mm}:${ss < 10 ? '0' : ''}${ss}`;
 };
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081/api";
+
 function PlayerScreen() {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -128,7 +130,7 @@ function PlayerScreen() {
             <video
                 ref={videoRef}
                 className="playerScreen__video"
-                src={`http://localhost:8081/api/movies/${id}/video`}
+                src={`${API_URL}/movies/${id}/video`}
                 autoPlay
                 onPlay={() => setPlaying(true)}
                 onPause={() => setPlaying(false)}

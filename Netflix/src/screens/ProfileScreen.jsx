@@ -4,6 +4,8 @@ import axios from '../axios';
 import Nav from '../components/Nav';
 import './ProfileScreen.css';
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081/api";
+
 function ProfileScreen() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
@@ -48,7 +50,7 @@ function ProfileScreen() {
         formData.append('file', file);
 
         try {
-            await axios.post(`http://localhost:8081/api/users/${user.id}/picture`, formData, {
+            await axios.post(`/users/${user.id}/picture`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -71,7 +73,7 @@ function ProfileScreen() {
                 <div className="profileScreen__info">
                     <div className="profileScreen__avatarContainer">
                         <img
-                            src={`http://localhost:8081/api/users/${user.id}/picture?key=${avatarKey}`}
+                            src={`${API_URL}/users/${user.id}/picture?key=${avatarKey}`}
                             alt="Avatar"
                             onError={(e) => e.target.src = "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"}
                         />

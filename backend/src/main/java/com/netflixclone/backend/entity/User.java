@@ -22,7 +22,7 @@ public class User {
     private String username;
 
     @jakarta.persistence.Lob
-    @jakarta.persistence.Column(columnDefinition = "LONGBLOB")
+    @jakarta.persistence.Column(length = 10000000)
     @com.fasterxml.jackson.annotation.JsonIgnore
     private byte[] profilePicture;
 

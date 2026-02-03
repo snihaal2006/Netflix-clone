@@ -5,6 +5,9 @@ import './MovieModal.css';
 import { FaPlay, FaPlus, FaThumbsUp, FaVolumeUp } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 
+
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081/api";
+
 function MovieModal({ movie, onClose }) {
     if (!movie) return null;
     const navigate = useNavigate();
@@ -16,7 +19,7 @@ function MovieModal({ movie, onClose }) {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user && user.id) {
             try {
-                await axios.post(`http://localhost:8081/api/users/${user.id}/mylist/${movie.id}`);
+                await axios.post(`/users/${user.id}/mylist/${movie.id}`);
                 alert("Added to My List!");
             } catch (error) {
                 console.error("Error adding to My List", error);
@@ -30,7 +33,7 @@ function MovieModal({ movie, onClose }) {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user && user.id) {
             try {
-                await axios.post(`http://localhost:8081/api/users/${user.id}/liked/${movie.id}`);
+                await axios.post(`/users/${user.id}/liked/${movie.id}`);
                 alert("Added to Liked Movies!");
             } catch (error) {
                 console.error("Error adding to Liked Movies", error);
@@ -73,7 +76,7 @@ function MovieModal({ movie, onClose }) {
 
                 <div className="modal-hero">
                     <img
-                        src={`http://localhost:8081/api/movies/${movie.id}/thumbnail`}
+                        src={`${API_URL}/movies/${movie.id}/thumbnail`}
                         alt={movie.title}
                         className="modal-hero-img"
                         onError={(e) => {
@@ -135,7 +138,7 @@ function MovieModal({ movie, onClose }) {
                                 <div key={rec.id} className="recommendation-card">
                                     <div className="recommendation-image-container">
                                         <img
-                                            src={`http://localhost:8081/api/movies/${rec.id}/thumbnail`}
+                                            src={`${API_URL}/movies/${rec.id}/thumbnail`}
                                             alt={rec.title}
                                             className="recommendation-img"
                                             onError={(e) => {
